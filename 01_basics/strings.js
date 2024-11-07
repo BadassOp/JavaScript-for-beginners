@@ -3,6 +3,10 @@ const surname = " Srivastav"
 
 // console.log(name + surname + " value");  // old way 
 
+// (`) used for template literals, which are a way to create strings that can include embedded expressions. You can directly embed variables and expressions within the string using the ${} syntax.
+
+// Multi-line Strings:
+// Template literals can span multiple lines without the need for escape characters.
 console.log(`Hello my name is ${name} any my surname is ${surname}`);  //new way and easily readable use `` this method
 
 
