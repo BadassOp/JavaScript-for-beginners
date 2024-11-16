@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM (Document Object Model)</title>
+</head>
+<body style="background-color: black; color: #fff;">
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+</body>
+<script>
+    //function for adding one more list item
+    function addLanguage(langName){
+        const li = document.createElement('li');
+        li.innerHTML = `${langName}`
+        document.querySelector('.language').appendChild(li)
+    }
+    addLanguage('Python')
+    addLanguage('Typescript')
+
+
+    //optimised way
+    function addOptiLang(langName){
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(langName))
+        document.querySelector('.language').appendChild(li)
+    }
+    addOptiLang('PHP')
+
+    
+    // Editing values
+    const Lang = document.querySelector("li:nth-child(2)")
+    console.log(Lang);
+    
+    // Lang.innerHTML = "Ruby"  //not effecient way
+    const newLi = document.createElement('li') //optimised way
+    newLi.textContent = "Ruby"
+    Lang.replaceWith(newLi)
+
+    //another way
+    const selLang = document.querySelector("li:first-child")
+    selLang.outerHTML = '<li>C Sharp</li>'
+
+
+    //removing 
+    const removeLang = document.querySelector("li:last-child")
+    removeLang.remove()
+</script>
+</html>
