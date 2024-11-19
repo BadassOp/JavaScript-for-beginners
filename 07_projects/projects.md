@@ -58,3 +58,23 @@ form.addEventListener('submit', function(e){
   }
 })
 ```
+
+## Project 3
+```javascript
+const clock = document.getElementById('clock')
+// const clock = document.querySelector('clock') //both are same
+
+setInterval(function () {
+  //Date method allow you to get and set the year, month, day, hour, minute, second, and millisecond of date objects
+  let date = new Date(); 
+
+  // console.log(date.toLocaleTimeString())  //updates clock in the console panel
+
+  clock.innerHTML = date.toLocaleTimeString()
+}, 1000)
+```
+
+## Project 4
+```javascript
+
+```
