@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript</title>
+</head>
+<body>
+    <h1>Asynchronous Functions</h1>
+    <button id="stop"> Stop </button>
+</body>
+<script>
+    //It is a method which calls API too
+    const sayName = function(){
+        console.log("BadassOP");
+    }
+
+    const changeText = function(){
+        document.querySelector('h1').
+        innerHTML="Hello"
+    }
+
+    // setTimeout(changeText, 2000)
+    const timeout = setTimeout(sayName, 2000) // function referencing not executing
+
+    // clearTimeout(timeout) 
+    
+    //applying it to the button
+    document.querySelector('#stop').addEventListener('click', function(){
+        clearTimeout(timeout)
+        console.log("stopped");
+        
+    })
+
+</script>
+</html>

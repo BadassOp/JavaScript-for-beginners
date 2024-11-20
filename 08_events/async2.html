@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript</title>
+</head>
+<body>
+    <h1>Javascript Async</h1>
+    <button id="start"> Start </button>
+    <button id="stop"> Stop </button>
+</body>
+<script>
+    // const change = setInterval(function(){
+    //     console.log("BadAss", Date.now());       
+    // }, 1000)
+    // setInterval(change, 1000)
+
+
+    /*
+    const sayDate = function(str){
+        console.log(str, Date.now());       
+    }
+    */
+    // const interval = setInterval(sayDate, 1000, "Hello") //here we have a 3rd parameter too for example
+
+    // clearInterval(interval)
+    
+    const playOrPause = function(){
+        console.log("BadAss");
+    }
+    
+    document.querySelector('#start').addEventListener('click', function(){
+        var interval = setInterval(playOrPause, 2000)
+        console.log("started");
+        document.querySelector('#stop').addEventListener('click', function(){
+            clearInterval(interval)
+            console.log("stopped");
+        })
+    })
+    
+    
+</script>
+</html>
