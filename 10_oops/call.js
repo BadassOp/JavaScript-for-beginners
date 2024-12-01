@@ -23,11 +23,11 @@ console.log(hello);
 
 
 // Example of CALL
-let name = {
+let Name = {
     firstname: "Badass",
     lastname: "OP",
-    printfullname: function(){
-        return this.firstname + " " + this.lastname
+    printfullname: function(age, country, state){
+        return `${this.firstname} ${this.lastname} your age is ${age} from ${country} living in ${state}`
     }
 }
 
@@ -36,4 +36,10 @@ let name2 = {
     lastname: "Coder"
 }
 
-console.log(name.printfullname())
+console.log(Name.printfullname.call(name2, "20", "India", "Delhi"))  // call
+console.log(Name.printfullname.apply(name2, ["20", "India", "Delhi"]))  // apply
+
+
+// Difference between call and apply is that:- 
+// The call() method takes arguments separately.
+// The apply() method takes arguments as an array.
