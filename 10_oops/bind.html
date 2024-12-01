@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+</head>
+<body>
+    <button>Button Clicked</button>
+</body>
+<script>
+    class React {
+        constructor(){
+            this.library = "React"
+            this.server = "https://localhost:3000"
+
+            // requirement
+
+            // using BIND, an object can borrow a method from another object.
+            document
+                .querySelector('button')
+                .addEventListener('click', this.handleClick
+                .bind(this))
+        }
+        handleClick(){
+            console.log("Button Clicked");
+            console.log(this);
+        }
+    }
+
+    const app = new React()
+
+    
+    // Example of BIND
+
+    // With the apply() method, you can write a method that can be used on different objects.
+    // so what it does is that it creates a copy of the function or method and binds it with the given object and returns a function. It doesn't directly calls that function like call rather than returns a method which can be called later.
+    
+    // MAIN DIFFERENCE b/w call and bind is that bind gives you the copy of the method which can be invoked later whereas in call the method is invoked wherever we wrote the call method.
+
+    let name = {
+        firstname: "Badass",
+        lastname: "OP",
+        printfullname: function(){
+            console.log(this.firstname + " " + this.lastname)
+        }
+    }
+
+    let name2 = {
+        firstname: "Hello",
+        lastname: "Coder"
+    }
+
+    const fullName = name.printfullname.bind(name2)
+    console.log(fullName);  // returns function which we are invoking in next line
+    fullName()
+</script>
+</html>
