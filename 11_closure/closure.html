@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure</title>
+</head>
+<body style="background-color: #313131;">
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+
+    <script>
+        // LEXICAL SCOPING  (determines how variables are resolved within nested functions. It means that the scope of a variable is determined by its location within the source code, specifically where it is declared.)
+        // Function inside a function
+
+        function init() {
+            let name = "Mozilla"; // name is a local variable created by init
+            function displayName() {
+            // displayName() is the inner function, that forms a closure
+            console.log(name); // use variable declared in the parent function
+            }
+            displayName();
+        }
+        init();
+        // console.log(displayName());  // you can't access displayName function outside the parent function it can only be accessed by the parent function 
+    
+
+        // +++++++++++++++++++ One more example of LEXICAL SCOPING ++++++++++++++++++++
+        function outer(){
+            let username = "Badass"
+            // console.log("OUTER", secret); // parent function can't access the variables which are defined in their child function
+            function inner (){
+                let secret = "Hello123"
+                console.log("inner", username);
+            }
+            function innerTwo(){
+                console.log("innerTwo", username);
+                // console.log(secret);  // sibling functions also can't access the variables which are defined inside them
+            }
+            inner()
+            innerTwo()
+        }
+        outer()
+
+    </script>
+
+    <script>
+
+        // CLOSURE 
+
+        function makeFunc() {
+            const name = "Firefox";
+            function displayName() {
+                console.log(name);
+            }
+            return displayName;  // it will return not only the "displayname" function but also the "outer function" (if it exist) bcoz the "displayname" function has access to the variable "name" which is defined in the "parent/outer function" (Lexical scoping).
+        }
+
+        const myFunc = makeFunc();
+        myFunc();
+
+    </script>
+
+    <script>
+        // Real world example of CLOSURE 
+
+        /*
+        document.getElementById("orange").onclick = function(){
+            document.body.style.backgroundColor = `orange`
+        }
+        document.getElementById("green").onclick = function(){
+            document.body.style.backgroundColor = `green`
+        }
+        */
+
+        function clickHandler(color){
+            // document.body.style.backgroundColor = `${color}`
+
+            return function(){
+                document.body.style.backgroundColor = `${color}`
+            }
+        }
+        document.getElementById('orange').onclick = clickHandler("orange")
+        document.getElementById('green').onclick = clickHandler("green")
+
+    </script>
+</body>
+</html>
+
+<!-- ++++++++++++++++++++++++++++ NOTES ++++++++++++++++++++++++ -->
+<!-- 
+    => A closure is created when an inner function has access to the variables of its outer (enclosing) function, even after the outer function has finished executing.
+-->
